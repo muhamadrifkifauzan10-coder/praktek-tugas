@@ -3,509 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhamad Rifki Fauzan</title>
+    <title>Portfolio - Indri Nopianti</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS Kustom -->
     <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #0a74f7;
+        /* Smooth Scrolling untuk navigasi */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styling untuk logo di navbar */
+        .navbar-brand .logo-circle {
+            background-color: #0d6efd;
             color: white;
-        }
-
-        /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 80px;
-            align-items: center;
-            background: white;
-            color: blue;
-        }
-
-        nav .logo {
-            font-size: 22px;
-            font-weight: 700;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        nav ul li {
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 70px 80px;
-            gap: 80px;
-        }
-
-        /* Foto bulat */
-        .photo-wrapper {
-            width: 250px;
-            height: 250px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            overflow: hidden;
-            border: 6px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        }
-
-        .photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Text */
-        .hero-text h1 {
-            font-size: 55px;
-            font-weight: 700;
-        }
-
-        .hero-text p {
-            width: 550px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            cursor: pointer;
+            justify-content: center;
+            font-weight: bold;
             margin-right: 10px;
-            text-decoration: none;
         }
 
-        .btn-red {
-            background: #e63946;
-            color: white;
+        /* Ganti warna navbar saat di-scroll */
+        .navbar-scrolled {
+            background-color: #343a40 !important;
+            transition: background-color 0.5s ease;
         }
 
-        .btn-blue {
-            background: #19d3f3;
-            color: black;
+        /* Efek hover pada kartu prestasi dan keahlian */
+        .custom-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Background untuk section bergantian */
+        .bg-light-gray {
+            background-color: #f8f9fa;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">🎓 IN</div>
-        <ul>
-            <li>Beranda</li>
-            <li>Tentang</li>
-            <li>Prestasi</li>
-            <li>Kontak</li>
-        </ul>
+    <!-- Navigasi -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <span class="logo-circle">IN</span> Indri Nopianti
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Saya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Prestasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <!-- Foto -->
-        <div class="photo-wrapper">
-            <img src="fto 1.jpg" alt="Foto Profil">
+    <!-- Bagian Utama (Hero Section) -->
+    <section id="home" class="d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; height: 100vh;">
+        <div class="container text-center text-white">
+            <img src="https://z-cdn-media.chatglm.cn/files/7d4b8e4d-e055-441e-9ff0-9b87adb8cb28.png?auth_key=1864825628-7bbb7ea206ca41f7a3928391c7782dc7-0-da6afa16dabc5d7352bcfbe6a00819fa" alt="Foto Profil Indri Nopianti" class="rounded-circle mb-4" style="width: 250px; height: 250px; object-fit: cover; border: 5px solid white;">
+            <h1 class="display-4 fw-bold">Indri Nopianti</h1>
+            <p class="lead">Siswa Kelas XII - 9 SMAN 10 Garut</p>
+            <p class="mt-3">Saya adalah siswa yang aktif dalam kegiatan akademik dan non-akademik, serta bercita-cita menjadi profesional masa depan yang berkontribusi positif.</p>
+            <a href="#contact" class="btn btn-primary btn-lg mt-3">Hubungi Saya</a>
         </div>
+    </section>
 
-        <!-- Teks -->
-        <div class="hero-text">
-            <h1>Muhamad Rifki fauzan</h1>
-            <h3>Siswa Kelas XII-3 SMAN 10 Garut</h3>
-            <p>
-            Perkenalkan saya Muhamad Rifki Fauzan siswa SMAN 10 GARUT yang saat ini duduk dibangku kelas XII-3. Dalam diri saya dua karakteristik yang berbeda-beda saya tekuni adalah bidang akademik maupun non akademik. Dari sisi akademik saya senang menggali ilmu pengetahuan baru, menambah wawasan, membaca buku, menonton berita yang masih hangat untuk memperluas pemahaman saya. serta belajar hal-hal baru contoh memperdalam pemahaman saya menjadi trader. Sementara dari non-akademik saya memiliki minat di bidang olahraga seperti berlari,berenang, dan bermain bulu tangkis. Harapan saya, saya dapat bertumbuh, berkembang, dan menemukan pengalaman baru yang bermanfaat bagi diri saya sendiri maupun oranglain.  
-            </p>
-
-            <a class="btn btn-blue"> Lihat Prestasi</a>
-            <a class="btn btn-red"> Hubungi Saya</a>
-        </div>
-    </div>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Saya - Indri Nopianti</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
-            border-radius: 5px;
-        }
-        
-        .profile-container {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .profile-left, .profile-right {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        
-        .profile-left {
-            flex: 1;
-        }
-        
-        .profile-right {
-            flex: 1;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: block;
-            border: 5px solid #f0f0f0;
-        }
-        
-        .profile-name {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .profile-school {
-            text-align: center;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .profile-description {
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        
-        .profile-hobbies {
-            margin-top: 20px;
-        }
-        
-        .hobby-title {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .hobby-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .hobby-item {
-            background-color: #f0f0f0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .hobby-item i {
-            color: #3498db;
-        }
-        
-        .skills-title {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-weight: 600;
-            text-align: center;
-        }
-        
-        .skill-category {
-            margin-bottom: 25px;
-        }
-        
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .category-title i {
-            color: #3498db;
-        }
-        
-        .skill-details {
-            margin-left: 30px;
-            color: #555;
-        }
-        
-        .skill-details p {
-            margin-bottom: 5px;
-        }
-        
-        .skill-level {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-        }
-        
-        .skill-bar {
-            height: 8px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-            width: 100%;
-            margin-top: 5px;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
-        }
-        
-        @media (max-width: 768px) {
-            .profile-container {
-                flex-direction: column;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #f0f0f0;
-            color: #3498db;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: #3498db;
-            color: white;
-            transform: translateY(-3px);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Tentang Saya</h1>
-        </header>
-        
-        <div class="profile-container">
-            <div class="profile-left">
-                <img src="https://picsum.photos/seed/indri-profile/150/150.jpg" alt="Profil Indri Nopianti" class="profile-image">
-                <h2 class="profile-name">Indri Nopianti</h2>
-                <p class="profile-school">SMAN 10 Garut - Kelas XII - 9</p>
-                
-                <div class="profile-description">
-                    <p>Saya adalah seorang siswa yang aktif dan kreatif di SMAN 10 Garut. Saya terlibat dalam berbagai organisasi seperti OSIS dan percaya bahwa pendidikan tidak hanya tentang akademik, tetapi juga tentang pengembangan karakter dan soft skills.</p>
+    <!-- Tentang Saya -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Tentang Saya</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p>Saya adalah Indri Nopianti, siswa kelas XII-9 di SMAN 10 Garut. Saya adalah siswa yang aktif dan kreatif, terlibat dalam berbagai organisasi sekolah seperti OSIS. Saya percaya bahwa pendidikan tidak hanya tentang pengetahuan akademik, tetapi juga tentang pembentukan karakter dan pengembangan soft skills.</p>
+                    <p>Hobi saya termasuk membaca, menggambar, mengikuti kompetisi matematika, dan belajar dalam kelompok. Saya percaya bahwa kombinasi antara akademik dan ekstrakurikuler membentuk individu yang seimbang dan siap menghadapi tantangan masa depan.</p>
                 </div>
-                
-                <div class="profile-hobbies">
-                    <h3 class="hobby-title">Hobi & Minat</h3>
-                    <div class="hobby-list">
-                        <div class="hobby-item">
-                            <i class="fas fa-book"></i>
-                            <span>Membaca</span>
-                        </div>
-                        <div class="hobby-item">
-                            <i class="fas fa-palette"></i>
-                            <span>Menggambar</span>
-                        </div>
-                        <div class="hobby-item">
-                            <i class="fas fa-calculator"></i>
-                            <span>Lomba Matematika</span>
-                        </div>
-                        <div class="hobby-item">
-                            <i class="fas fa-users"></i>
-                            <span>Belajar Kelompok</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                <div class="col-lg-6 text-center">
+                    <img src="https://z-cdn-media.chatglm.cn/files/514db8ee-a598-4031-940e-38bc9e25342e.png?auth_key=1864825437-559f39bd906c4bcdb04fa217fe913770-0-7e4b97d715b8acca2d57c70a993cd429" alt="Indri Nopianti" class="img-fluid rounded shadow">
                 </div>
             </div>
-            
-            <div class="profile-right">
-                <h2 class="skills-title">Keahlian & Minat</h2>
-                
-                <div class="skill-category">
-                    <div class="category-title">
-                        <i class="fas fa-square-root-alt"></i>
-                        <span>Matematika</span>
+        </div>
+    </section>
+
+    <!-- Prestasi -->
+    <section id="achievements" class="py-5 bg-light-gray">
+        <div class="container">
+            <h2 class="text-center mb-5">Prestasi</h2>
+            <div class="row g-4">
+                <!-- Kartu Prestasi 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Juara 1 Olimpiade Matematika</h5>
+                            <p class="card-text">Tingkat Kabupaten Garut (2022). Meraih juara pertama dalam kompetisi sains yang sangat prestisius.</p>
+                        </div>
                     </div>
-                    <div class="skill-details">
-                        <p>• Tingkat Olimpiade</p>
-                        <p>• Peserta Olimpiade Sains</p>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <!-- Kartu Prestasi 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-medal fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Best Speaker Debat Bahasa Inggris</h5>
+                            <p class="card-text">Antar SMA Se-Jawa Barat (2021). Terpilih sebagai pembicara terbaik dalam kompetisi debat.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kartu Prestasi 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-palette fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Juara 2 Lomba Seni Lukis</h5>
+                            <p class="card-text">Diselenggarakan oleh Dinas Pendidikan (2021). Karya seni saya mendapat pengakuan di tingkat regional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian & Minat -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Keahlian & Minat</h2>
+            <div class="row g-4">
+                <!-- Kartu Keahlian 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-calculator fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Matematika</h5>
+                            <p class="card-text">Minat dan keahlian di bidang Matematika tingkat Olimpiade.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <div class="category-title">
-                        <i class="fas fa-flask"></i>
-                        <span>Fisika & Kimia</span>
-                    </div>
-                    <div class="skill-details">
-                        <p>• Pemahaman konsep dasar hingga lanjutan</p>
-                        <p>• Praktikum laboratorium</p>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
+                <!-- Kartu Keahlian 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-flask fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Fisika & Kimia</h5>
+                            <p class="card-text">Antusiasme dan pemahaman yang baik dalam ilmu pengetahuan alam.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <div class="category-title">
-                        <i class="fas fa-language"></i>
-                        <span>Bahasa Inggris</span>
-                    </div>
-                    <div class="skill-details">
-                        <p>• Aktif di klub debat</p>
-                        <p>• Kemampuan komunikasi verbal dan tertulis</p>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                <!-- Kartu Keahlian 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-language fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Bahasa Inggris</h5>
+                            <p class="card-text">Kemampuan komunikasi aktif, anggota klub debat bahasa Inggris.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <div class="category-title">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>Seni & Kreativitas</span>
-                    </div>
-                    <div class="skill-details">
-                        <p>• Menggambar dan desain</p>
-                        <p>• Kreativitas dalam pemecahan masalah</p>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
+                <!-- Kartu Keahlian 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-paint-brush fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Seni & Kreativitas</h5>
+                            <p class="card-text">Passion di bidang menggambar dan desain grafis.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <div class="category-title">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Kepemimpinan</span>
-                    </div>
-                    <div class="skill-details">
-                        <p>• Pengalaman organisasi di OSIS</p>
-                        <p>• Kemampuan mengelola tim dan proyek</p>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                <!-- Kartu Keahlian 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm custom-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-tie fa-3x text-secondary mb-3"></i>
+                            <h5 class="card-title">Kepemimpinan</h5>
+                            <p class="card-text">Pengalaman sebagai ketua OSIS dan mampu memimpin tim.</p>
+                            <div class="progress mt-3">
+                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5">Informasi Kontak</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-3">Hubungi Saya</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Alamat Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Pesan Anda</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Informasi Person</h3>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pendidikan No. 10, Garut, Jawa Barat</p>
+                    <p><i class="fas fa-phone me-2"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> indri.nopianti@sman10garut.sch.id</p>
+                    <p><i class="fas fa-school me-2"></i> SMAN 10 Garut, Kelas XII-9</p>
+                    
+                    <div class="mt-4">
+                        <h4>Ikuti Saya</h4>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center py-3">
+        <p>&copy; 2023 Indri Nopianti. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- JavaScript Kustom -->
+    <script>
+        // Ubah background navbar saat di-scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('main-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Handle submit form kontak
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah form dari reload halaman
+            alert('Terima kasih! Pesan Anda telah terkirim (simulasi).');
+            this.reset(); // Reset form setelah submit
+        });
+
+        // Aktifkan link navigasi berdasarkan section yang terlihat
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
