@@ -3,281 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
-    
-    <!-- ==================== CSS ==================== -->
+    <title>Portofolio</title>
     <style>
-        /* --- Gaya Umum & Variabel Warna --- */
-        :root {
-            --primary-color: #007BFF; /* Warna Biru Utama */
-            --secondary-color: #343A40; /* Warna Abu-abu Gelap */
-            --light-color: #F8F9FA; /* Warna Latar Belakang Terang */
-            --text-color: #333; /* Warna Teks */
-            --white-color: #FFFFFF;
-        }
-
-        /* Mengatur font dan menghilangkan margin/padding default */
-        * {
+        /* --- Gaya Umum --- */
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth; /* Efek gulir halus */
-        }
-
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: #ffffff; /* Latar Putih */
+            color: #000000; /* Teks Hitam */
         }
 
         .container {
-            max-width: 1100px;
+            width: 80%;
             margin: auto;
-            padding: 0 20px;
-            overflow: hidden;
+            padding: 20px;
         }
 
         h1, h2 {
-            color: var(--secondary-color);
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 10px;
+            color: #333333; /* Abu-abu Gelap */
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        hr {
+            border: 0;
+            border-top: 1px solid #cccccc; /* Garis Pembatas Abu-abu */
+            margin: 40px 0;
         }
 
         /* --- Header & Navigasi --- */
         .main-header {
-            background-color: var(--white-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
+            background-color: #f2f2f2; /* Latar Abu-abu Muda */
+            padding: 10px;
+            text-align: center;
         }
 
         .main-nav ul {
-            display: flex;
-            list-style: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .main-nav li {
+            display: inline;
+            margin: 0 15px;
         }
 
         .main-nav a {
-            color: var(--text-color);
             text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Bagian Konten Utama --- */
-        section {
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        /* --- Bagian Beranda (Hero) --- */
-        #beranda {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white-color);
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1600x900?technology,work') no-repeat center center/cover;
-        }
-
-        #beranda h1 {
-            color: var(--white-color);
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-
-        #beranda p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: auto;
+            color: #000000;
+            font-weight: bold;
         }
 
         /* --- Bagian Tentang Saya --- */
-        #tentang-saya .about-content {
+        #tentang-saya .content-wrapper {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 40px;
-            text-align: left;
+        }
+
+        .about-text {
+            flex: 3;
+            padding-right: 20px;
         }
 
         .about-img {
             flex: 1;
-            max-width: 400px;
+            text-align: center;
         }
 
         .about-img img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 150px;
+            height: auto;
         }
 
-        .about-text {
-            flex: 2;
-        }
-        
-        /* --- Bagian Prestasi & Keahlian --- */
-        .list-item {
-            background: var(--white-color);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* --- Bagian Keahlian & Prestasi --- */
+        .simple-list {
+            list-style-type: none;
+            padding-left: 0;
         }
 
-        .list-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .simple-list li {
+            background-color: #f9f9f9; /* Latar Sangat Muda */
+            margin-bottom: 5px;
+            padding: 10px;
+            border-left: 3px solid #cccccc;
         }
 
-        /* --- Galeri Foto --- */
+        /* --- Bagian GALERI FOTO --- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            text-align: center;
         }
 
         .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd; /* Bingkai Tipis */
         }
 
-        .gallery-item img:hover {
-            transform: scale(1.05);
+        .gallery-item p {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
         }
 
-        /* --- Bagian Kontak --- */
-        #kontak .contact-wrapper {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            text-align: left;
-        }
-
-        .contact-form, .contact-info {
-            flex: 1;
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--white-color);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #0056b3;
-        }
-        
+        /* --- Bagian Hubungi Saya --- */
         .contact-info p {
-            margin-bottom: 15px;
-        }
-
-        .contact-info i {
-            color: var(--primary-color);
-            margin-right: 10px;
+            margin: 5px 0;
         }
 
         /* --- Footer --- */
         .main-footer {
-            background: var(--secondary-color);
-            color: var(--white-color);
+            background-color: #333333; /* Latar Abu-abu Tua */
+            color: #ffffff; /* Teks Putih */
             text-align: center;
-            padding: 20px 0;
+            padding: 10px;
+            margin-top: 20px;
         }
 
-        /* --- Responsive Design untuk Mobile --- */
-        @media(max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .main-header .container { flex-direction: column; }
-            .main-nav ul { padding: 10px 0; }
-            #beranda h1 { font-size: 3rem; }
-            #tentang-saya .about-content,
-            #kontak .contact-wrapper {
+        /* --- Agar Tampilan Bagus di HP --- */
+        @media (max-width: 768px) {
+            #tentang-saya .content-wrapper {
                 flex-direction: column;
             }
+            .about-text {
+                padding-right: 0;
+            }
         }
-
     </style>
 </head>
 <body>
@@ -285,176 +141,106 @@
     <!-- ==================== HEADER & NAVIGASI ==================== -->
     <header class="main-header">
         <div class="container">
-            <a href="#beranda" class="logo">NamaSaya.com</a>
+            <h1>Muhamad Rifki Fauzan</h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#beranda">Beranda</a></li>
-                    <li><a href="#tentang-saya">Tentang</a></li>
-                    <li><a href="#prestasi">Prestasi</a></li>
-                    <li><a href="#keahlian">Keahlian</a></li>
-                    <li><a href="#galeri">Galeri</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
+                    <li><a href="#tentang-saya">About</a></li>
+                    <li><a href="#keahlian">Skill</a></li>
+                    <li><a href="#prestasi">achievement</a></li>
+                    <li><a href="#galeri-foto">Galeri</a></li>
+                    <li><a href="#hubungi-saya">Kontak Person</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- ==================== SECTION 1: BERANDA ==================== -->
-        <section id="beranda">
-            <div class="container">
-                <h1>Halo, Saya [Nama Lengkap Anda]</h1>
-                <p>[Profesi Anda, misal: Mahasiswa, Web Developer Pemula, Desainer Grafis]</p>
-            </div>
-        </section>
-
-        <!-- ==================== SECTION 2: TENTANG SAYA ==================== -->
+    <div class="container">
+        <!-- ==================== SECTION 1: TENTANG SAYA ==================== -->
         <section id="tentang-saya">
-            <div class="container">
-                <h2>Tentang Saya</h2>
-                <div class="about-content">
-                    <div class="about-img">
-                        <!-- Ganti 'URL_FOTO_ANDA' dengan link foto profil Anda -->
-                        <img src="https://source.unsplash.com/random/400x400?portrait" alt="Foto Profil Saya">
-                    </div>
-                    <div class="about-text">
-                        <p>
-                            <!-- Tulis paragraf tentang diri Anda di sini -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec auctor a lacus in tincidunt. Proin blandit, justo at scelerisque facilisis, ante sapien bibendum eros, vel vehicula nulla leo sed nunc. Mauris in ex ut nibh consequat tristique.
-                        </p>
-                        <p>
-                            <!-- Anda bisa menambahkan paragraf lain jika perlu -->
-                            Saya memiliki passion besar di bidang [sebutkan bidang Anda, misal: teknologi dan desain] dan terus berusaha untuk belajar hal-hal baru setiap harinya.
-                        </p>
-                    </div>
+            <div class="content-wrapper">
+                <div class="about-text">
+                    <!-- ========== EDIT BAGIAN INI ========== -->
+                    <h2>Halo, Saya Muhamad Rifki Fauzan</h2>
+                    <p>Saya adalah siswa kelas XII-3 di Sman 10 Garut yang dalam diri saya ada dua karakter berbeda mulai dari non akademik dan non akademik. Dari sisi akademik saya menyukasi ilmu pengetahuan yang belum saya tahu seperti menambah wawasan saya dan untuk non akademik saya lebih condong dalam olahraga bulu tangkis yang dimna saya sudah memenangkan pertandingan cukup banyak dan kegagalan yang sudah saya lewati. harapan saya bisa dapat bertumbuh berkembang dan pengalaman baru. .</p>
+                    <p>Di luar jam sekolah, saya aktif dalam lapangan.</p>
+                    <!-- ========== SELESAI EDIT ========== -->
+                </div>
+                <div class="about-img">
+                    <!-- Ganti 'LINK_FOTO_ANDA' dengan link foto Anda -->
+                    <img src="fto 1.jpg" alt="Foto Profil">
                 </div>
             </div>
         </section>
 
-        <!-- ==================== SECTION 3: PRESTASI ==================== -->
-        <section id="prestasi">
-            <div class="container">
-                <h2>Prestasi Saya</h2>
-                <div class="list-item">
-                    <h3>Juara 1 Lomba Debat Tingkat Kabupaten</h3>
-                    <p>Tahun 2023 - berhasil menjadi juara pertama dalam kompetisi debat antar SMA se-Kabupaten Garut.</p>
-                </div>
-                <div class="list-item">
-                    <h3>Finalis Olimpiade Sains Nasional</h3>
-                    <p>Tahun 2022 - berhasil masuk ke babak final OSN bidang Matematika tingkat provinsi.</p>
-                </div>
-                <div class="list-item">
-                    <h3>Sertifikat Kursus Web Development</h3>
-                    <p>Tahun 2023 - menyelesaikan kursus online "Belajar Membuat Website" di Dicoding.</p>
-                </div>
-                <!-- Anda bisa menambahkan prestasi lain dengan menyalin kode <div class="list-item"> ... </div> -->
-            </div>
-        </section>
+        <hr>
 
-        <!-- ==================== SECTION 4: KEAHLIAN & MINAT ==================== -->
+        <!-- ==================== SECTION 2: KEAHLIAN SAYA ==================== -->
         <section id="keahlian">
-            <div class="container">
-                <h2>Keahlian & Minat</h2>
-                <div class="list-item">
-                    <h3>Web Development (HTML, CSS, JavaScript)</h3>
-                    <p>Mampu membuat website statis dan dasar-dasar pemrograman web.</p>
+            <h2>Keahlian Saya</h2>
+            <ul class="simple-list">
+                <!-- ========== EDIT BAGIAN INI ========== -->
+                <li>Displin</li>
+                <li>Baik hati dan tidak sombong</li>
+                <li>Berpikir kritis</li>
+                <!-- ========== SELESAI EDIT ========== -->
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- ==================== SECTION 3: PRESTASI SAYA ==================== -->
+        <section id="prestasi">
+            <h2>Prestasi Saya</h2>
+            <ul class="simple-list">
+                <!-- ========== EDIT BAGIAN INI ========== -->
+                <li>ATLET BULU TANGKIS</li>
+                <li>ATLET LARI</li>
+                <!-- ========== SELESAI EDIT ========== -->
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- ==================== SECTION 4: GALERI FOTO ==================== -->
+        <section id="galeri-foto">
+            <h2>Galeri Kegiatan Saya</h2>
+            <div class="gallery-grid">
+                <!-- ========== EDIT BAGIAN INI ========== -->
+                <div class="gallery-item">
+                    <img src="https://source.unsplash.com/random/400x300?team,meeting" alt="Kegiatan 1">
+                    <p>Rapat Panitia</p>
                 </div>
-                <div class="list-item">
-                    <h3>Desain Grafis (Adobe Photoshop, Figma)</h3>
-                    <p>Mendesain poster, banner, dan antarmuka pengguna (UI) yang sederhana.</p>
+                <div class="gallery-item">
+                    <img src="https://source.unsplash.com/random/400x300?presentation" alt="Kegiatan 2">
+                    <p>Presentasi</p>
                 </div>
-                <div class="list-item">
-                    <h3>Public Speaking</h3>
-                    <p>Berbicara di depan umum, presentasi, dan debat.</p>
+                <div class="gallery-item">
+                    <img src="https://source.unsplash.com/random/400x300?outdoor,camping" alt="Kegiatan 3">
+                    <p>Pramuka</p>
                 </div>
-                <!-- Anda bisa menambahkan keahlian lain di sini -->
+                <!-- ========== SELESAI EDIT ========== -->
             </div>
         </section>
 
-        <!-- ==================== SECTION 5: GALERI FOTO ==================== -->
-        <section id="galeri">
-            <div class="container">
-                <h2>Galeri Kegiatan Saya</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <!-- Ganti 'URL_FOTO_KEGIATAN' dengan link foto kegiatan Anda -->
-                        <img src="https://source.unsplash.com/random/400x300?coding,computer" alt="Kegiatan 1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x300?team,meeting" alt="Kegiatan 2">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x300?presentation" alt="Kegiatan 3">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x300?design,creative" alt="Kegiatan 4">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x300?nature,adventure" alt="Kegiatan 5">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://source.unsplash.com/random/400x300?study,books" alt="Kegiatan 6">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <hr>
 
-        <!-- ==================== SECTION 6: KONTAK ==================== -->
-        <section id="kontak">
-            <div class="container">
-                <h2>Hubungi Saya</h2>
-                <div class="contact-wrapper">
-                    <div class="contact-form">
-                        <!-- Form ini tidak akan benar-benar mengirim email, karena memerlukan backend -->
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <label for="nama">Nama Lengkap</label>
-                                <input type="text" id="nama" name="nama" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Alamat Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="pesan">Pesan Anda</label>
-                                <textarea id="pesan" name="pesan" required></textarea>
-                            </div>
-                            <button type="submit" class="btn">Kirim Pesan</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Informasi Kontak</h3>
-                        <!-- Ganti dengan informasi kontak Anda -->
-                        <p><i class="fas fa-envelope"></i> email.saya@example.com</p>
-                        <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Garut, Jawa Barat, Indonesia</p>
-                        <!-- Tambahkan link media sosial Anda -->
-                        <a href="#" class="btn">Lihat LinkedIn</a>
-                    </div>
-                </div>
+        <!-- ==================== SECTION 5: HUBUNGI SAYA ==================== -->
+        <section id="hubungi-saya">
+            <h2>Hubungi Saya</h2>
+            <div class="contact-info">
+                <!-- ========== EDIT BAGIAN INI ========== -->
+                <p>Email: Muhamadrifkifauzan10@gmail.com</p>
+                <p>Telepon: +62 856-0332-7992</p>
+                <p>Instagram: rfkii.znn</p>
+                <!-- ========== SELESAI EDIT ========== -->
             </div>
         </section>
-    </main>
+    </div> <!-- Penutup .container -->
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2024 [Nama Lengkap Anda]. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2024 MUHAMAD RIFKI FAUZAN Portofolio Pribadi.</p>
     </footer>
-
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <!-- Tambahkan library Font Awesome untuk ikon -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
-    <script>
-        // Script sederhana untuk memberi notifikasi saat form dikirim
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah form melakukan aksi default (reload halaman)
-            alert('Terima kasih! Pesan Anda telah terkirim (ini adalah demo, pesan tidak benar-benar terkirim).');
-            this.reset(); // Mengosongkan form setelah submit
-        });
-    </script>
 
 </body>
 </html>
