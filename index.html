@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indri Nopianti</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #0a74f7;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 80px;
+            align-items: center;
+            background: white;
+            color: black;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 80px;
+            gap: 80px;
+        }
+
+        /* Foto bulat */
+        .photo-wrapper {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Text */
+        .hero-text h1 {
+            font-size: 55px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            width: 550px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .btn-red {
+            background: #e63946;
+            color: white;
+        }
+
+        .btn-blue {
+            background: #19d3f3;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">🎓 IN</div>
+        <ul>
+            <li>Beranda</li>
+            <li>Tentang</li>
+            <li>Prestasi</li>
+            <li>Kontak</li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <!-- Foto -->
+        <div class="photo-wrapper">
+            <img src="foto.jpg" alt="Foto Profil">
+        </div>
+
+        <!-- Teks -->
+        <div class="hero-text">
+            <h1>Indri Nopianti</h1>
+            <h3>Siswa Kelas XII-9 SMAN 10 Garut</h3>
+            <p>
+                Siswa kelas XII-9 yang aktif dalam kegiatan akademik dan non-akademik.
+                Bersemangat dalam bidang sains, teknologi, dan seni. Bermimpi menjadi
+                insinyur profesional di masa depan.
+            </p>
+
+            <a class="btn btn-red">🏆 Lihat Prestasi</a>
+            <a class="btn btn-blue">✉️ Hubungi Saya</a>
+        </div>
+    </div>
+
+</body>
+</html>
