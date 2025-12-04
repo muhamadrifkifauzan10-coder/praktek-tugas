@@ -3,318 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Indri Nopianti</title>
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Font Awesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- CSS Kustom -->
+    <title>Portofolio Saya</title>
+    
+    <!-- ==================== CSS ==================== -->
     <style>
-        /* Smooth Scrolling untuk navigasi */
-        html {
-            scroll-behavior: smooth;
+        /* --- Gaya Umum & Variabel Warna --- */
+        :root {
+            --primary-color: #007BFF; /* Warna Biru Utama */
+            --secondary-color: #343A40; /* Warna Abu-abu Gelap */
+            --light-color: #F8F9FA; /* Warna Latar Belakang Terang */
+            --text-color: #333; /* Warna Teks */
+            --white-color: #FFFFFF;
         }
 
-        /* Styling untuk logo di navbar */
-        .navbar-brand .logo-circle {
-            background-color: #0d6efd;
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: inline-flex;
+        /* Mengatur font dan menghilangkan margin/padding default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* Efek gulir halus */
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        h1, h2 {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- Header & Navigasi --- */
+        .main-header {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Bagian Konten Utama --- */
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        /* --- Bagian Beranda (Hero) --- */
+        #beranda {
+            height: 100vh;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            text-align: center;
+            color: var(--white-color);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1600x900?technology,work') no-repeat center center/cover;
+        }
+
+        #beranda h1 {
+            color: var(--white-color);
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #beranda p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* --- Bagian Tentang Saya --- */
+        #tentang-saya .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .about-img {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+        
+        /* --- Bagian Prestasi & Keahlian --- */
+        .list-item {
+            background: var(--white-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Galeri Foto --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Bagian Kontak --- */
+        #kontak .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .contact-form, .contact-info {
+            flex: 1;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
             margin-right: 10px;
         }
 
-        /* Ganti warna navbar saat di-scroll */
-        .navbar-scrolled {
-            background-color: #343a40 !important;
-            transition: background-color 0.5s ease;
+        /* --- Footer --- */
+        .main-footer {
+            background: var(--secondary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 20px 0;
         }
 
-        /* Efek hover pada kartu prestasi dan keahlian */
-        .custom-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* --- Responsive Design untuk Mobile --- */
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .main-header .container { flex-direction: column; }
+            .main-nav ul { padding: 10px 0; }
+            #beranda h1 { font-size: 3rem; }
+            #tentang-saya .about-content,
+            #kontak .contact-wrapper {
+                flex-direction: column;
+            }
         }
-        .custom-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        /* Background untuk section bergantian */
-        .bg-light-gray {
-            background-color: #f8f9fa;
-        }
+
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.5);">
+    <!-- ==================== HEADER & NAVIGASI ==================== -->
+    <header class="main-header">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#home">
-                <span class="logo-circle">IN</span> Indri Nopianti
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang Saya</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#achievements">Prestasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Keahlian</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
-                    </li>
+            <a href="#beranda" class="logo">NamaSaya.com</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang-saya">Tentang</a></li>
+                    <li><a href="#prestasi">Prestasi</a></li>
+                    <li><a href="#keahlian">Keahlian</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== SECTION 1: BERANDA ==================== -->
+        <section id="beranda">
+            <div class="container">
+                <h1>Halo, Saya [Nama Lengkap Anda]</h1>
+                <p>[Profesi Anda, misal: Mahasiswa, Web Developer Pemula, Desainer Grafis]</p>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Bagian Utama (Hero Section) -->
-    <section id="home" class="d-flex align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; height: 100vh;">
-        <div class="container text-center text-white">
-            <img src="https://z-cdn-media.chatglm.cn/files/7d4b8e4d-e055-441e-9ff0-9b87adb8cb28.png?auth_key=1864825628-7bbb7ea206ca41f7a3928391c7782dc7-0-da6afa16dabc5d7352bcfbe6a00819fa" alt="Foto Profil Indri Nopianti" class="rounded-circle mb-4" style="width: 250px; height: 250px; object-fit: cover; border: 5px solid white;">
-            <h1 class="display-4 fw-bold">Indri Nopianti</h1>
-            <p class="lead">Siswa Kelas XII - 9 SMAN 10 Garut</p>
-            <p class="mt-3">Saya adalah siswa yang aktif dalam kegiatan akademik dan non-akademik, serta bercita-cita menjadi profesional masa depan yang berkontribusi positif.</p>
-            <a href="#contact" class="btn btn-primary btn-lg mt-3">Hubungi Saya</a>
-        </div>
-    </section>
+        <!-- ==================== SECTION 2: TENTANG SAYA ==================== -->
+        <section id="tentang-saya">
+            <div class="container">
+                <h2>Tentang Saya</h2>
+                <div class="about-content">
+                    <div class="about-img">
+                        <!-- Ganti 'URL_FOTO_ANDA' dengan link foto profil Anda -->
+                        <img src="https://source.unsplash.com/random/400x400?portrait" alt="Foto Profil Saya">
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            <!-- Tulis paragraf tentang diri Anda di sini -->
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec auctor a lacus in tincidunt. Proin blandit, justo at scelerisque facilisis, ante sapien bibendum eros, vel vehicula nulla leo sed nunc. Mauris in ex ut nibh consequat tristique.
+                        </p>
+                        <p>
+                            <!-- Anda bisa menambahkan paragraf lain jika perlu -->
+                            Saya memiliki passion besar di bidang [sebutkan bidang Anda, misal: teknologi dan desain] dan terus berusaha untuk belajar hal-hal baru setiap harinya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Tentang Saya -->
-    <section id="about" class="py-5">
+        <!-- ==================== SECTION 3: PRESTASI ==================== -->
+        <section id="prestasi">
+            <div class="container">
+                <h2>Prestasi Saya</h2>
+                <div class="list-item">
+                    <h3>Juara 1 Lomba Debat Tingkat Kabupaten</h3>
+                    <p>Tahun 2023 - berhasil menjadi juara pertama dalam kompetisi debat antar SMA se-Kabupaten Garut.</p>
+                </div>
+                <div class="list-item">
+                    <h3>Finalis Olimpiade Sains Nasional</h3>
+                    <p>Tahun 2022 - berhasil masuk ke babak final OSN bidang Matematika tingkat provinsi.</p>
+                </div>
+                <div class="list-item">
+                    <h3>Sertifikat Kursus Web Development</h3>
+                    <p>Tahun 2023 - menyelesaikan kursus online "Belajar Membuat Website" di Dicoding.</p>
+                </div>
+                <!-- Anda bisa menambahkan prestasi lain dengan menyalin kode <div class="list-item"> ... </div> -->
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: KEAHLIAN & MINAT ==================== -->
+        <section id="keahlian">
+            <div class="container">
+                <h2>Keahlian & Minat</h2>
+                <div class="list-item">
+                    <h3>Web Development (HTML, CSS, JavaScript)</h3>
+                    <p>Mampu membuat website statis dan dasar-dasar pemrograman web.</p>
+                </div>
+                <div class="list-item">
+                    <h3>Desain Grafis (Adobe Photoshop, Figma)</h3>
+                    <p>Mendesain poster, banner, dan antarmuka pengguna (UI) yang sederhana.</p>
+                </div>
+                <div class="list-item">
+                    <h3>Public Speaking</h3>
+                    <p>Berbicara di depan umum, presentasi, dan debat.</p>
+                </div>
+                <!-- Anda bisa menambahkan keahlian lain di sini -->
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: GALERI FOTO ==================== -->
+        <section id="galeri">
+            <div class="container">
+                <h2>Galeri Kegiatan Saya</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <!-- Ganti 'URL_FOTO_KEGIATAN' dengan link foto kegiatan Anda -->
+                        <img src="https://source.unsplash.com/random/400x300?coding,computer" alt="Kegiatan 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x300?team,meeting" alt="Kegiatan 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x300?presentation" alt="Kegiatan 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x300?design,creative" alt="Kegiatan 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x300?nature,adventure" alt="Kegiatan 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://source.unsplash.com/random/400x300?study,books" alt="Kegiatan 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 6: KONTAK ==================== -->
+        <section id="kontak">
+            <div class="container">
+                <h2>Hubungi Saya</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-form">
+                        <!-- Form ini tidak akan benar-benar mengirim email, karena memerlukan backend -->
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap</label>
+                                <input type="text" id="nama" name="nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Alamat Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pesan">Pesan Anda</label>
+                                <textarea id="pesan" name="pesan" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Informasi Kontak</h3>
+                        <!-- Ganti dengan informasi kontak Anda -->
+                        <p><i class="fas fa-envelope"></i> email.saya@example.com</p>
+                        <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Garut, Jawa Barat, Indonesia</p>
+                        <!-- Tambahkan link media sosial Anda -->
+                        <a href="#" class="btn">Lihat LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="main-footer">
         <div class="container">
-            <h2 class="text-center mb-5">Tentang Saya</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <p>Saya adalah Indri Nopianti, siswa kelas XII-9 di SMAN 10 Garut. Saya adalah siswa yang aktif dan kreatif, terlibat dalam berbagai organisasi sekolah seperti OSIS. Saya percaya bahwa pendidikan tidak hanya tentang pengetahuan akademik, tetapi juga tentang pembentukan karakter dan pengembangan soft skills.</p>
-                    <p>Hobi saya termasuk membaca, menggambar, mengikuti kompetisi matematika, dan belajar dalam kelompok. Saya percaya bahwa kombinasi antara akademik dan ekstrakurikuler membentuk individu yang seimbang dan siap menghadapi tantangan masa depan.</p>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://z-cdn-media.chatglm.cn/files/514db8ee-a598-4031-940e-38bc9e25342e.png?auth_key=1864825437-559f39bd906c4bcdb04fa217fe913770-0-7e4b97d715b8acca2d57c70a993cd429" alt="Indri Nopianti" class="img-fluid rounded shadow">
-                </div>
-            </div>
+            <p>&copy; 2024 [Nama Lengkap Anda]. All Rights Reserved.</p>
         </div>
-    </section>
-
-    <!-- Prestasi -->
-    <section id="achievements" class="py-5 bg-light-gray">
-        <div class="container">
-            <h2 class="text-center mb-5">Prestasi</h2>
-            <div class="row g-4">
-                <!-- Kartu Prestasi 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
-                            <h5 class="card-title">Juara 1 Olimpiade Matematika</h5>
-                            <p class="card-text">Tingkat Kabupaten Garut (2022). Meraih juara pertama dalam kompetisi sains yang sangat prestisius.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Prestasi 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-medal fa-3x text-info mb-3"></i>
-                            <h5 class="card-title">Best Speaker Debat Bahasa Inggris</h5>
-                            <p class="card-text">Antar SMA Se-Jawa Barat (2021). Terpilih sebagai pembicara terbaik dalam kompetisi debat.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Prestasi 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-palette fa-3x text-danger mb-3"></i>
-                            <h5 class="card-title">Juara 2 Lomba Seni Lukis</h5>
-                            <p class="card-text">Diselenggarakan oleh Dinas Pendidikan (2021). Karya seni saya mendapat pengakuan di tingkat regional.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Keahlian & Minat -->
-    <section id="skills" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Keahlian & Minat</h2>
-            <div class="row g-4">
-                <!-- Kartu Keahlian 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-calculator fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Matematika</h5>
-                            <p class="card-text">Minat dan keahlian di bidang Matematika tingkat Olimpiade.</p>
-                            <div class="progress mt-3">
-                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Keahlian 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-flask fa-3x text-success mb-3"></i>
-                            <h5 class="card-title">Fisika & Kimia</h5>
-                            <p class="card-text">Antusiasme dan pemahaman yang baik dalam ilmu pengetahuan alam.</p>
-                            <div class="progress mt-3">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Keahlian 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-language fa-3x text-info mb-3"></i>
-                            <h5 class="card-title">Bahasa Inggris</h5>
-                            <p class="card-text">Kemampuan komunikasi aktif, anggota klub debat bahasa Inggris.</p>
-                            <div class="progress mt-3">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Keahlian 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-paint-brush fa-3x text-danger mb-3"></i>
-                            <h5 class="card-title">Seni & Kreativitas</h5>
-                            <p class="card-text">Passion di bidang menggambar dan desain grafis.</p>
-                            <div class="progress mt-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kartu Keahlian 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm custom-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-user-tie fa-3x text-secondary mb-3"></i>
-                            <h5 class="card-title">Kepemimpinan</h5>
-                            <p class="card-text">Pengalaman sebagai ketua OSIS dan mampu memimpin tim.</p>
-                            <div class="progress mt-3">
-                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontak -->
-    <section id="contact" class="py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="text-center mb-5">Informasi Kontak</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h3 class="mb-3">Hubungi Saya</h3>
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Pesan Anda</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-3">Informasi Person</h3>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pendidikan No. 10, Garut, Jawa Barat</p>
-                    <p><i class="fas fa-phone me-2"></i> +62 812-3456-7890</p>
-                    <p><i class="fas fa-envelope me-2"></i> indri.nopianti@sman10garut.sch.id</p>
-                    <p><i class="fas fa-school me-2"></i> SMAN 10 Garut, Kelas XII-9</p>
-                    
-                    <div class="mt-4">
-                        <h4>Ikuti Saya</h4>
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-2x"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white text-center py-3">
-        <p>&copy; 2023 Indri Nopianti. All Rights Reserved.</p>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-    <!-- JavaScript Kustom -->
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <!-- Tambahkan library Font Awesome untuk ikon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
     <script>
-        // Ubah background navbar saat di-scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('main-navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
-            }
-        });
-
-        // Handle submit form kontak
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Mencegah form dari reload halaman
-            alert('Terima kasih! Pesan Anda telah terkirim (simulasi).');
-            this.reset(); // Reset form setelah submit
-        });
-
-        // Aktifkan link navigasi berdasarkan section yang terlihat
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
+        // Script sederhana untuk memberi notifikasi saat form dikirim
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form melakukan aksi default (reload halaman)
+            alert('Terima kasih! Pesan Anda telah terkirim (ini adalah demo, pesan tidak benar-benar terkirim).');
+            this.reset(); // Mengosongkan form setelah submit
         });
     </script>
 
