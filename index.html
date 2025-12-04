@@ -23,7 +23,7 @@
             padding: 20px 80px;
             align-items: center;
             background: white;
-            color: dark;
+            color: blue;
         }
 
         nav .logo {
@@ -141,5 +141,371 @@
         </div>
     </div>
 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Saya - Indri Nopianti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            border-radius: 5px;
+        }
+        
+        .profile-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .profile-left, .profile-right {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .profile-left {
+            flex: 1;
+        }
+        
+        .profile-right {
+            flex: 1;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid #f0f0f0;
+        }
+        
+        .profile-name {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .profile-school {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .profile-description {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .profile-hobbies {
+            margin-top: 20px;
+        }
+        
+        .hobby-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .hobby-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .hobby-item {
+            background-color: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .hobby-item i {
+            color: #3498db;
+        }
+        
+        .skills-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .skill-category {
+            margin-bottom: 25px;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .category-title i {
+            color: #3498db;
+        }
+        
+        .skill-details {
+            margin-left: 30px;
+            color: #555;
+        }
+        
+        .skill-details p {
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tentang Saya</h1>
+        </header>
+        
+        <div class="profile-container">
+            <div class="profile-left">
+                <img src="https://picsum.photos/seed/indri-profile/150/150.jpg" alt="Profil Indri Nopianti" class="profile-image">
+                <h2 class="profile-name">Indri Nopianti</h2>
+                <p class="profile-school">SMAN 10 Garut - Kelas XII - 9</p>
+                
+                <div class="profile-description">
+                    <p>Saya adalah seorang siswa yang aktif dan kreatif di SMAN 10 Garut. Saya terlibat dalam berbagai organisasi seperti OSIS dan percaya bahwa pendidikan tidak hanya tentang akademik, tetapi juga tentang pengembangan karakter dan soft skills.</p>
+                </div>
+                
+                <div class="profile-hobbies">
+                    <h3 class="hobby-title">Hobi & Minat</h3>
+                    <div class="hobby-list">
+                        <div class="hobby-item">
+                            <i class="fas fa-book"></i>
+                            <span>Membaca</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Menggambar</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>Lomba Matematika</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-users"></i>
+                            <span>Belajar Kelompok</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="profile-right">
+                <h2 class="skills-title">Keahlian & Minat</h2>
+                
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-square-root-alt"></i>
+                        <span>Matematika</span>
+                    </div>
+                    <div class="skill-details">
+                        <p>• Tingkat Olimpiade</p>
+                        <p>• Peserta Olimpiade Sains</p>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-flask"></i>
+                        <span>Fisika & Kimia</span>
+                    </div>
+                    <div class="skill-details">
+                        <p>• Pemahaman konsep dasar hingga lanjutan</p>
+                        <p>• Praktikum laboratorium</p>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-language"></i>
+                        <span>Bahasa Inggris</span>
+                    </div>
+                    <div class="skill-details">
+                        <p>• Aktif di klub debat</p>
+                        <p>• Kemampuan komunikasi verbal dan tertulis</p>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Seni & Kreativitas</span>
+                    </div>
+                    <div class="skill-details">
+                        <p>• Menggambar dan desain</p>
+                        <p>• Kreativitas dalam pemecahan masalah</p>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Kepemimpinan</span>
+                    </div>
+                    <div class="skill-details">
+                        <p>• Pengalaman organisasi di OSIS</p>
+                        <p>• Kemampuan mengelola tim dan proyek</p>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
